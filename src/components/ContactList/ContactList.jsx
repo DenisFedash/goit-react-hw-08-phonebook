@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem, ButtonList, SectionList } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,12 +16,12 @@ export const ContactList = () => {
     );
   };
 
-  const filtredContacnList = filtredContact();
+  const filtredContactList = filtredContact();
 
   return (
     <SectionList>
       <List>
-        {filtredContacnList.map(({ id, name, number }) => (
+        {filtredContactList.map(({ id, name, number }) => (
           <ListItem key={id}>
             <p>
               {name}: {number}

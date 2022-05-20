@@ -22,10 +22,6 @@ export function ContactForm() {
     return contacts.find(contact => contact.number === number);
   };
 
-  const Error = (name, number) => {
-    return name.trim() === '' || number.trim() === '';
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -39,8 +35,6 @@ export function ContactForm() {
       toast(`🤔 ${name} is already in the contacts!`);
     } else if (checkNumber(number)) {
       toast(`🤔 ${number} is already in the contacts!`);
-    } else if (Error(name, number)) {
-      toast.error('😱 Enter the contacts name and number phone!');
     } else {
       dispatch(addContact(newContact));
     }
