@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { List, SectionList, AddButton, ListItem } from './ContactList.styled';
 import { useGetContactsQuery } from 'redux/contacts';
 import { useMemo, useState } from 'react';
@@ -41,14 +40,4 @@ export const ContactList = () => {
       </List>
     </SectionList>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
 };
