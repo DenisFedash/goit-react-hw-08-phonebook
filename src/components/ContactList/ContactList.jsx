@@ -9,7 +9,7 @@ import { Loader } from 'components/Loader/Loader';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 
 export const ContactList = () => {
-  const { data: contacts, isFetching, error } = useGetContactsQuery();
+  const { data: contacts, isLoading, error } = useGetContactsQuery();
 
   const [filter, setFilter] = useState('');
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export const ContactList = () => {
       </AddButton>
       <Filter value={filter} onChange={setFilter} />
       <List>
-        {isFetching && <Loader />}
+        {isLoading && <Loader />}
         {error && <PageNotFound data={error.data} status={error.status} />}
         {contacts &&
           filtredContact.map(el => (

@@ -23,11 +23,12 @@ export const ListItem = styled.li`
 `;
 
 export const ButtonList = styled.button`
-  width: 60px;
+  /* width: 60px; */
   height: auto;
   cursor: pointer;
   border: none;
   background: transparent;
+  padding: 0;
   svg {
     vertical-align: middle;
     :hover {

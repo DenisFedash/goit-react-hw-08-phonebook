@@ -1,26 +1,73 @@
 import { Container, TextName, Input, Button } from './ContactForm.styled';
 import toast from 'react-hot-toast';
-import { useAddContactMutation } from 'redux/contacts';
+import { useAddContactMutation, useGetContactsQuery } from 'redux/contacts';
 import { useNavigate } from 'react-router-dom';
 import { AddButton } from 'components/ContactList/ContactList.styled';
 import { TiArrowBack } from 'react-icons/ti';
+import { useState } from 'react';
+import { Spinner } from 'components/Spinner/Spinner';
 
 export function ContactForm() {
   const navigate = useNavigate();
-  const [addContact] = useAddContactMutation();
+  const [addContact, { isLoading }] = useAddContactMutation();
+  const { data: contacts } = useGetContactsQuery();
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const handleSubmit = async e => {
+  const checkName = name => {
+    return contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+  };
+
+  const checkNumber = phone => {
+    return contacts.find(contact => contact.phone === phone);
+  };
+
+  const Error = (name, phone) => {
+    return name.trim() === '' || phone.trim() === '';
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
+
     const newContact = {
-      name: e.currentTarget.elements.name.value,
-      phone: e.currentTarget.elements.phone.value,
+      name,
+      phone,
     };
-    try {
-      await addContact(newContact);
-      toast.success('Contact added successfuly!');
-      navigate('/list', { replace: true });
-    } catch (error) {
-      toast.error('Error during adding!');
+
+    if (checkName(name)) {
+      toast(`🤔 ${name} is already in the contacts!`);
+    } else if (checkNumber(phone)) {
+      toast(`🤔 ${phone} is already in the contacts!`);
+    } else if (Error(name, phone)) {
+      toast.error('😱 Enter the contacts name and number phone!');
+    } else {
+      addContact(newContact);
+      toast.success(`${name} ${phone} added successfully!`);
+    }
+    reset();
+  };
+
+  const reset = () => {
+    setName('');
+    setPhone('');
+  };
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+
+      case 'phone':
+        setPhone(value);
+        break;
+
+      default:
+        return;
     }
   };
 
@@ -35,6 +82,8 @@ export function ContactForm() {
           <Input
             type="text"
             name="name"
+            value={name}
+            onChange={handleChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
@@ -45,12 +94,16 @@ export function ContactForm() {
           <Input
             type="tel"
             name="phone"
+            value={phone}
+            onChange={handleChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
         </TextName>
-        <Button type="submit">Add contact</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? <Spinner /> : 'Add contact'}
+        </Button>
       </Container>
     </>
   );

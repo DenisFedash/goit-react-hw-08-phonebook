@@ -28,7 +28,12 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
+  width: 170px;
+  height: 45px;
   background-color: teal;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;

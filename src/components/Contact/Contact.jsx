@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { useDeleteContactMutation } from 'redux/contacts';
 import PropTypes from 'prop-types';
+import { Spinner } from 'components/Spinner/Spinner';
 
 export const Contact = ({ items }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -20,18 +21,18 @@ export const Contact = ({ items }) => {
         onClick={deleteSelectedContact}
         disabled={isLoading}
       >
-        <RiDeleteBin6Fill size="1.3em" />
+        {isLoading ? <Spinner /> : <RiDeleteBin6Fill size="1.3em" />}
       </ButtonList>
     </>
   );
 };
 
 Contact.propTypes = {
-  items: PropTypes.arrayOf(
+  contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 };
