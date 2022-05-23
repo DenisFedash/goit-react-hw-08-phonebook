@@ -1,12 +1,11 @@
-// import { useState } from 'react';
 import { Container, TextName, Input, Button } from './ContactForm.styled';
 import toast from 'react-hot-toast';
-import { useAddContactMutation, useGetContactsQuery } from 'redux/contacts';
+import { useAddContactMutation } from 'redux/contacts';
 import { useNavigate } from 'react-router-dom';
 import { AddButton } from 'components/ContactList/ContactList.styled';
 import { TiArrowBack } from 'react-icons/ti';
 
-export function ContactForm({ name, phone }) {
+export function ContactForm() {
   const navigate = useNavigate();
   const [addContact] = useAddContactMutation();
 
@@ -21,7 +20,7 @@ export function ContactForm({ name, phone }) {
       toast.success('Contact added successfuly!');
       navigate('/list', { replace: true });
     } catch (error) {
-      toast.error('Ошибка при добавлении');
+      toast.error('Error during adding!');
     }
   };
 

@@ -5,10 +5,9 @@ import { useMemo, useState } from 'react';
 import { Filter } from 'components/Filter/Filter';
 import { useNavigate } from 'react-router-dom';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
-
 import { Contact } from 'components/Contact/Contact';
 import { Loader } from 'components/Loader/Loader';
-import PageNotFound from 'components/pages/PageNotFound/PageNotFound';
+import PageNotFound from 'pages/PageNotFound/PageNotFound';
 
 export const ContactList = () => {
   const { data: contacts, isFetching, error } = useGetContactsQuery();
@@ -35,8 +34,8 @@ export const ContactList = () => {
         {error && <PageNotFound data={error.data} status={error.status} />}
         {contacts &&
           filtredContact.map(el => (
-            <ListItem>
-              <Contact key={el.id} items={el} />
+            <ListItem key={el.id}>
+              <Contact id={el.id} items={el} />
             </ListItem>
           ))}
       </List>

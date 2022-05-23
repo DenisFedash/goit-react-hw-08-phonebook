@@ -1,8 +1,9 @@
 import { ContactList } from 'components/ContactList/ContactList';
 import { useGetContactsQuery } from 'redux/contacts';
 
-export function ContactPage() {
+export default function ContactPage() {
   const { data } = useGetContactsQuery();
+
   return (
     <>
       {!data || data.lenght === 0 ? (

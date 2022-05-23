@@ -1,6 +1,6 @@
 import { ButtonList } from 'components/ContactList/ContactList.styled';
 import toast from 'react-hot-toast';
-
+import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { useDeleteContactMutation } from 'redux/contacts';
 
 export const Contact = ({ items }) => {
@@ -19,7 +19,7 @@ export const Contact = ({ items }) => {
         onClick={deleteSelectedContact}
         disabled={isLoading}
       >
-        Delete
+        <RiDeleteBin6Fill size="1.3em" />
       </ButtonList>
     </>
   );
