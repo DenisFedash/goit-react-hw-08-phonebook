@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 export const SectionList = styled.div`
-  /* display: block;
-  margin-right: auto;
-  margin-left: auto; */
+  /* position: relative; */
 `;
 
 export const List = styled.ul`
@@ -30,5 +29,24 @@ export const ButtonList = styled.button`
   cursor: pointer;
   :hover {
     background-color: red;
+  }
+`;
+
+export const AddButton = styled.button`
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  :hover {
+    color: orange;
+  }
+
+  svg {
+    vertical-align: middle;
   }
 `;

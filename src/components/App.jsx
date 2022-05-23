@@ -1,26 +1,24 @@
 import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Title, TitleList } from './App.styled';
+import { Title } from './App.styled';
 import { Toaster } from 'react-hot-toast';
 import { Section } from './Section/Section';
-import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/valueSlice';
-
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
+import { ContactPage } from './pages/ContacPage';
 export default function APP() {
-  const contacts = useSelector(getContacts);
   return (
     <Section>
       <Title>Phonebook</Title>
-      <ContactForm />
+
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/list" />} />
+          <Route path="list/*" element={<ContactPage />} />
+          <Route path="create" element={<ContactForm />} />
+        </Route>
+      </Routes>
+
       <Toaster />
-      <TitleList>Contacts</TitleList>
-      {contacts.length > 1 && <Filter />}
-      {contacts.length > 0 ? (
-        <ContactList />
-      ) : (
-        <p>Your phonebook is empty. Please add contact.</p>
-      )}
     </Section>
   );
 }

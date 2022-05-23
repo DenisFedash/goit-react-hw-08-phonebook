@@ -1,19 +1,14 @@
 import { TextName, Input } from 'components/ContactForm/ContactForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeFilter, getFilter } from 'redux/valueSlice';
 
-export const Filter = () => {
-  const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
-
+export const Filter = ({ value, onChange }) => {
   return (
     <TextName>
       Find contact by name
       <Input
         type="text"
-        value={filter}
+        value={value}
         onChange={e => {
-          dispatch(changeFilter(e.currentTarget.value));
+          onChange(e.currentTarget.value);
         }}
       />
     </TextName>
