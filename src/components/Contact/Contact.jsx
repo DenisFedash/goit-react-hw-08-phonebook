@@ -14,7 +14,7 @@ export const Contact = ({ items }) => {
   return (
     <>
       <p>
-        {items.name}: {items.phone}
+        {items.name}: {items.number}
       </p>
       <ButtonList
         type="button"

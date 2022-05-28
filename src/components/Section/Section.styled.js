@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const PhoneSection = styled.div`
-  position: relative;
+  /* position: relative; */
   padding: 40px;
   max-width: 400px;
   margin-right: auto;
