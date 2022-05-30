@@ -112,7 +112,8 @@ import { Spinner } from 'components/Spinner/Spinner';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Section } from 'components/Section/Section';
+// import { Section } from 'components/Section/Section';
+// import { Card } from '@mui/material';
 
 export function ContactForm() {
   const navigate = useNavigate();
@@ -180,10 +181,14 @@ export function ContactForm() {
   return (
     <Box
       sx={{
-        width: 300,
-        backgroundColor: 'green',
+        position: 'relative',
+        backgroundColor: 'lightgreen',
+        paddingTop: '40px',
+        paddingBottom: '40px',
+        margin: 'auto',
+        textAlign: 'center',
+        // width: '400px',
       }}
-      style={{ display: 'flex' }}
     >
       <AddButton type="button" onClick={() => navigate('/')}>
         <TiArrowBack size="2em" />
@@ -191,14 +196,22 @@ export function ContactForm() {
       <Box
         component="form"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, MaxWidth: '35ch' },
         }}
         noValidate
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '200',
+          }}
+        >
           <TextField
+            style={{ color: 'white' }}
             id="outlined-name"
             label="Name"
             variant="filled"

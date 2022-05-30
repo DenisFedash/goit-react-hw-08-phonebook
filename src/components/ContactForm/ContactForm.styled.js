@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
 
+export const Card = styled.div`
+  display: flex;
+  /* flex-direction: column; */
+  background-color: green;
+`;
+
 export const Container = styled.form`
   margin-bottom: 30px;
   margin-top: 5px;
@@ -31,6 +37,7 @@ export const Button = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-top: 25px;
   padding: 10px 20px;
   width: 170px;
   height: 45px;

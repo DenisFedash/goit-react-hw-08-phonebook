@@ -5,6 +5,8 @@ import { Filter } from 'components/Filter/Filter';
 import { Contact } from 'components/Contact/Contact';
 import { Loader } from 'components/Loader/Loader';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
+import * as React from 'react';
+import Box from '@mui/material/Box';
 
 export const ContactList = () => {
   const { data: contacts, isLoading, error } = useGetContactsQuery();
@@ -20,7 +22,16 @@ export const ContactList = () => {
 
   return (
     <>
-      <SectionList>
+      <Box
+        sx={{
+          position: 'relative',
+          backgroundColor: 'lightgreen',
+          paddingTop: '40px',
+          paddingBottom: '40px',
+          textAlign: 'center',
+          margin: '0 auto',
+        }}
+      >
         <Filter value={filter} onChange={setFilter} />
         <List>
           {isLoading && <Loader />}
@@ -32,7 +43,7 @@ export const ContactList = () => {
               </ListItem>
             ))}
         </List>
-      </SectionList>
+      </Box>
     </>
   );
 };

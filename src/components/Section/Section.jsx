@@ -18,10 +18,13 @@ export const Section = ({ children }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="1024">
+      <Container maxWidth="1200">
         <Box
-          sx={{ bgcolor: '#cfe8fc', height: '100vh' }}
-          style={{ position: 'relative' }}
+          style={{
+            height: '100vh',
+            paddingTop: '50px',
+            paddingBottom: '50px',
+          }}
         >
           {children}
         </Box>
