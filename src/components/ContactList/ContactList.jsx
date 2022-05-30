@@ -11,7 +11,6 @@ import Box from '@mui/material/Box';
 export const ContactList = () => {
   const { data: contacts, isLoading, error } = useGetContactsQuery();
   const [filter, setFilter] = useState('');
-
   const filtredContact = useMemo(() => {
     return (
       contacts?.filter(contact =>
@@ -33,6 +32,9 @@ export const ContactList = () => {
         }}
       >
         <Filter value={filter} onChange={setFilter} />
+        {/* {!contacts.length && (
+          <p>Your phonebook is empty. Please add contact.</p>
+        )} */}
         <List>
           {isLoading && <Loader />}
           {error && <PageNotFound data={error.data} status={error.status} />}

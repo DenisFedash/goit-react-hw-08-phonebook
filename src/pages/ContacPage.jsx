@@ -29,6 +29,7 @@ export default function ContactPage() {
       ) : (
         <ContactList />
       )}
+      <ContactList />
     </Box>
   );
 }

@@ -105,7 +105,6 @@ export function ContactForm() {
           }}
         >
           <TextField
-            id="standard-required"
             label="Name"
             variant="standard"
             type="text"
@@ -117,7 +116,6 @@ export function ContactForm() {
             required
           />
           <TextField
-            id="standard-required"
             label="Number"
             variant="standard"
             type="tel"

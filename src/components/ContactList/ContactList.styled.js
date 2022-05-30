@@ -10,7 +10,8 @@ export const List = styled.ul`
   font-size: 18px;
   max-width: 600px;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 `;
 
 export const ListItem = styled.li`

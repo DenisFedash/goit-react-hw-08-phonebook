@@ -1,18 +1,37 @@
+import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
+import { Text } from './HomePage.styled';
+import Button from '@mui/material/Button';
 
 export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <p>Welcome to Phonebook</p>
-      <p>Please, Enter or Log In</p>
-      <button type="button" onClick={() => navigate('login')}>
-        Enter
-      </button>
-      <button type="button" onClick={() => navigate('register')}>
+    <Box
+      sx={{
+        paddingTop: '40px',
+        paddingBottom: '40px',
+        textAlign: 'center',
+        margin: '0 auto',
+      }}
+    >
+      <Text>Welcome to Phonebook</Text>
+      <Text>Please, Log In or Sign In</Text>
+      <Button
+        style={{ marginRight: '40px' }}
+        variant="outlined"
+        type="button"
+        onClick={() => navigate('login')}
+      >
         Log In
-      </button>
-    </div>
+      </Button>
+      <Button
+        variant="outlined"
+        type="button"
+        onClick={() => navigate('/register')}
+      >
+        Sign In
+      </Button>
+    </Box>
   );
 }
