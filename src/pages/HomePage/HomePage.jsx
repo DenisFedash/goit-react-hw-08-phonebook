@@ -18,7 +18,7 @@ export default function HomePage() {
       <Text>Welcome to Phonebook</Text>
       <Text>Please, Log In or Sign In</Text>
       <Button
-        style={{ marginRight: '40px' }}
+        style={{ marginRight: '40px', backgroundColor: 'yellow' }}
         variant="outlined"
         type="button"
         onClick={() => navigate('login')}
@@ -26,6 +26,7 @@ export default function HomePage() {
         Log In
       </Button>
       <Button
+        style={{ backgroundColor: 'yellow' }}
         variant="outlined"
         type="button"
         onClick={() => navigate('/register')}

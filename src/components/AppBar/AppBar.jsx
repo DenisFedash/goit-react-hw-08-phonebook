@@ -36,17 +36,16 @@ export default function MenuAppBar() {
           ) : (
             <div>
               <Button
-                style={{ marginRight: '10px' }}
-                color="error"
-                variant="outlined"
+                variant="text"
+                style={{ marginRight: '10px', color: 'yellow' }}
                 type="button"
                 onClick={() => navigate('login')}
               >
                 Log In
               </Button>
               <Button
-                color="error"
-                variant="outlined"
+                style={{ color: 'yellow' }}
+                variant="text"
                 type="button"
                 onClick={() => navigate('register')}
               >
