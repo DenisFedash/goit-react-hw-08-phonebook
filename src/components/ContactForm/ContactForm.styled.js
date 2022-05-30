@@ -39,7 +39,7 @@ export const Button = styled.button`
   justify-content: center;
   margin-top: 25px;
   padding: 10px 20px;
-  width: 170px;
+
   height: 45px;
   background-color: teal;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);

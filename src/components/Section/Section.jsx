@@ -24,6 +24,7 @@ export const Section = ({ children }) => {
             height: '100vh',
             paddingTop: '50px',
             paddingBottom: '50px',
+            margin: '0, auto',
           }}
         >
           {children}

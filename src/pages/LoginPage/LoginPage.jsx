@@ -61,7 +61,7 @@ export default function LoginPage() {
         paddingBottom: '40px',
         margin: 'auto',
         textAlign: 'center',
-        maxWidth: '400px',
+        maxWidth: '600px',
       }}
     >
       <Box
@@ -77,12 +77,11 @@ export default function LoginPage() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            width: '200',
+            paddingLeft: '50px',
+            paddingRight: '50px',
           }}
         >
           <TextField
-            style={{ color: 'white' }}
             id="standard-required"
             label="E-mail"
             variant="standard"
@@ -92,6 +91,7 @@ export default function LoginPage() {
             onChange={handleChange}
           />
           <TextField
+            style={{ paddingBottom: '30px' }}
             id="standard-password-input"
             label="Password"
             variant="standard"

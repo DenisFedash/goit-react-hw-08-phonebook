@@ -1,4 +1,4 @@
-import { List, SectionList, ListItem } from './ContactList.styled';
+import { List, ListItem } from './ContactList.styled';
 import { useGetContactsQuery } from 'redux/contacts';
 import { useMemo, useState } from 'react';
 import { Filter } from 'components/Filter/Filter';

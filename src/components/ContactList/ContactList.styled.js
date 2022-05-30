@@ -8,11 +8,12 @@ export const List = styled.ul`
   margin-top: 30px;
   font-weight: 500;
   font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 50px;
 `;
 
 export const ListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 4px;
   background-color: lightgray;

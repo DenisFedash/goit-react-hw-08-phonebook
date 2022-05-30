@@ -18,6 +18,7 @@ export default function ContactPage() {
         paddingBottom: '40px',
         textAlign: 'center',
         margin: '0 auto',
+        maxWidth: '600px',
       }}
     >
       <AddButton type="button" onClick={() => navigate('/create')}>
