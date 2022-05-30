@@ -31,7 +31,6 @@ export default function LoginPage() {
       return toast.error('💩 Please fill in all fields!');
     }
     dispatch(authOperations.logIn({ email, password }));
-    toast.success('You enter in phonebook');
 
     setEmail('');
     setPassword('');
@@ -43,7 +42,7 @@ export default function LoginPage() {
         position: 'relative',
         backgroundColor: 'yellow',
         paddingTop: '40px',
-        paddingBottom: '40px',
+        paddingBottom: '60px',
         margin: 'auto',
         textAlign: 'center',
         maxWidth: '600px',
