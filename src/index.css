@@ -7,9 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('./img/bg-image.webp'); */
-  /* padding-top: 40px;
-  padding-bottom: 40px; */
+  background-image: url('./img/back-flag.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+ 
 }
 
 code {

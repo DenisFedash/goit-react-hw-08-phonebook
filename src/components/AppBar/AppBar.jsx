@@ -8,16 +8,21 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import { Link } from './AppBar.styled';
+import { Navigation } from 'components/Navigation/Navigation';
 
 export default function MenuAppBar() {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, paddingBottom: '50px' }}>
       <AppBar position="static">
-        <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Toolbar
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
           <Typography
             variant="h6"
             component="div"
@@ -25,11 +30,7 @@ export default function MenuAppBar() {
           >
             Phonebook
           </Typography>
-          <div>
-            <Link to="/">Home Page</Link>
-            <Link to="/list">Contacts</Link>
-          </div>
-
+          <Navigation />
           {isLoggedIn ? (
             <UserMenu />
           ) : (

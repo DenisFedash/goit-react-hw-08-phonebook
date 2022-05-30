@@ -77,7 +77,9 @@ export function ContactForm() {
     <Box
       sx={{
         position: 'relative',
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'yellow',
+        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+        borderRadius: '4px',
         paddingTop: '40px',
         paddingBottom: '40px',
         margin: 'auto',

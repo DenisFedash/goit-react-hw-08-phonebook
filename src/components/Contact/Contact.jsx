@@ -26,7 +26,7 @@ export function Contact({ items }) {
         padding: '5px',
       }}
     >
-      <Avatar {...items.name} />
+      <Avatar />
       <Typography variant="h6" component="div">
         {items.name}: {items.number}
       </Typography>

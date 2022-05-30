@@ -24,7 +24,7 @@ export const ContactList = () => {
       <Box
         sx={{
           position: 'relative',
-          backgroundColor: 'lightgreen',
+          backgroundColor: 'yellow',
           paddingTop: '40px',
           paddingBottom: '40px',
           textAlign: 'center',
@@ -32,9 +32,9 @@ export const ContactList = () => {
         }}
       >
         <Filter value={filter} onChange={setFilter} />
-        {/* {!contacts.length && (
+        {!contacts.length && (
           <p>Your phonebook is empty. Please add contact.</p>
-        )} */}
+        )}
         <List>
           {isLoading && <Loader />}
           {error && <PageNotFound data={error.data} status={error.status} />}

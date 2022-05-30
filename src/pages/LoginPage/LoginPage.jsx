@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import authSelectors from 'redux/auth/authSelectors';
 import { Spinner } from 'components/Spinner/Spinner';
 import Button from '@mui/material/Button';
+import toast from 'react-hot-toast';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -26,42 +27,28 @@ export default function LoginPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (email.trim() === '' || password.trim() === '') {
+      return toast.error('💩 Please fill in all fields!');
+    }
     dispatch(authOperations.logIn({ email, password }));
+    toast.success('You enter in phonebook');
 
     setEmail('');
     setPassword('');
   };
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <label>
-    //     Email
-    //     <input
-    //       type="email"
-    //       name="email"
-    //       value={email}
-    //       onChange={handleChange}
-    //     />
-    //     Password
-    //     <input
-    //       type="password"
-    //       name="password"
-    //       value={password}
-    //       onChange={handleChange}
-    //     />
-    //   </label>
-    //   <button type="submit">Enter</button>
-    // </form>
-
     <Box
       sx={{
         position: 'relative',
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'yellow',
         paddingTop: '40px',
         paddingBottom: '40px',
         margin: 'auto',
         textAlign: 'center',
         maxWidth: '600px',
+        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+        borderRadius: '4px',
       }}
     >
       <Box

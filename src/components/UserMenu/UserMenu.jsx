@@ -13,6 +13,7 @@ export default function UserMenu() {
     <div>
       <Avatar src={defaultAvatar} alt="avatar" width="32" />
       <Name>{name}</Name>
+
       <Button
         color="error"
         variant="outlined"

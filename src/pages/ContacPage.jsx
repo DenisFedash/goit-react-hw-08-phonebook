@@ -13,12 +13,14 @@ export default function ContactPage() {
     <Box
       sx={{
         position: 'relative',
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'yellow',
         paddingTop: '40px',
         paddingBottom: '40px',
         textAlign: 'center',
         margin: '0 auto',
         maxWidth: '600px',
+        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+        borderRadius: '4px',
       }}
     >
       <AddButton type="button" onClick={() => navigate('/create')}>
@@ -29,7 +31,6 @@ export default function ContactPage() {
       ) : (
         <ContactList />
       )}
-      <ContactList />
     </Box>
   );
 }
