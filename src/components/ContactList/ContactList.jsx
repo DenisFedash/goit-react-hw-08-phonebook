@@ -35,6 +35,7 @@ export const ContactList = () => {
         {!contacts.length && (
           <p>Your phonebook is empty. Please add contact.</p>
         )}
+
         <List>
           {isLoading && <Loader />}
           {error && <PageNotFound data={error.data} status={error.status} />}

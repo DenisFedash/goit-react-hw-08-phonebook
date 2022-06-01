@@ -32,8 +32,8 @@ export default function LoginPage() {
     }
     dispatch(authOperations.logIn({ email, password }));
 
-    setEmail('');
-    setPassword('');
+    setEmail(email);
+    setPassword(password);
   };
 
   return (

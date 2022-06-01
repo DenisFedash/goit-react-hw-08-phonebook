@@ -38,10 +38,6 @@ export default function RegisterPage() {
       return toast.info('Passwords must be at least 7 characters long!');
     }
     dispatch(authOperations.register({ name, email, password }));
-    toast.success('User created successfully!');
-    setName('');
-    setEmail('');
-    setPassword('');
   };
 
   return (

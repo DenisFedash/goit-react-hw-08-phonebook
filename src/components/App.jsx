@@ -1,23 +1,27 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-
 import { Loader } from './Loader/Loader';
-import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import LoginPage from 'pages/LoginPage/LoginPage';
 import AppBar from './AppBar/AppBar';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import authSelectors from 'redux/auth/authSelectors';
-import HomePage from 'pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import authOperations from 'redux/auth/authOperations';
 
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const ContactPage = lazy(() => import('../pages/ContacPage'));
 const Form = lazy(() => import('../pages/Form'));
 const PageNotFound = lazy(() => import('../pages/PageNotFound/PageNotFound'));
 
 export default function APP() {
   const isRefreshing = useSelector(authSelectors.getIsRefreshing);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.getRefreshUser());
+  }, [dispatch]);
 
   return (
     <>
@@ -38,7 +42,7 @@ export default function APP() {
             <Route
               path="login"
               element={
-                <PublicRoute restricted>
+                <PublicRoute restricted redirectTo="/list">
                   <LoginPage />
                 </PublicRoute>
               }
