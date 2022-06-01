@@ -18,6 +18,7 @@ const PageNotFound = lazy(() => import('../pages/PageNotFound/PageNotFound'));
 
 export default function APP() {
   const isRefreshing = useSelector(authSelectors.getIsRefreshing);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.getRefreshUser());
